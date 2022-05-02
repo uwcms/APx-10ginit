@@ -1,0 +1,12 @@
+[Unit]
+Description=Initialize 10GbE
+Wants=sysmap-uio-config.service
+After=sysmap-uio-config.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/10ginit -c /etc/10ginit.conf -i
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
